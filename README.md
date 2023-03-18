@@ -28,7 +28,7 @@ To use the application, simply type in one of the predefined commands and press 
 
 ## Credits
 
-This project was created by Rami. 
+This project was created by [Rami](https://github.com/RamiJS/). 
 
 ## License
 
