@@ -21,16 +21,54 @@ export default class WriteCmd {
       if (event.keyCode === 13) {
         let response = "";
         let isDefaultResponse = false;
+        let projects = [
+          {
+            name: "Blogoty(Fullstack Blogging App)",
+            link: "https://github.com/RamiJS/blog-web-app"
+          },
+          {
+            name: "Gradient Color Tool",
+            link: "https://github.com/RamiJS/gradientColor_creating_tool"
+          },
+          {
+            name: "Trafalgar Landing Page",
+            link: "https://trafalgarr-landing-page.netlify.app/"
+          },
+          {
+            name: "Old Portfolio Page",
+            link: "https://github.com/RamiJS/portfolioV2"
+          },
+        ]
+        let commands = [
+        {
+          name: "help",
+          description: "Displays all the commands"
+        },
+        {
+          name: "about",
+          description: "Displays information about Rami"
+        },
+        {
+          name: "skills",
+          description: "Displays my skills"
+        },
+        {
+          name: "projects",
+          description: "Displays my projects"
+        },
+        {
+          name: "contact",
+          description: "Displays my contact information"
+        }
+        ]
         switch (input) {
           case "help":
-            response = `
-            <strong style="font-size: 17px;">Commands:</strong><br>
-            <strong>help</strong>: Displays all the commands <br>
-            <strong>about</strong>: Displays information about Rami <br>
-            <strong>skills</strong>: Displays my skills <br>
-            <strong>projects</strong>: Displays my projects <br>
-            <strong>contact</strong>: Displays my contact information <br>
-            `
+            // loop through the commands array and create a response string
+            commands.forEach((command, index) => {
+              response += `
+              <strong>${command.name}: </strong> ${command.description} <br>
+              `
+            })
             break;
           case "about":
             response = "I am Rami Yassin. a 22 year-old Frontend developer. Studied Bachelor of computer Science in Software Engineering(HONS) in Malaysia. I am an enthusiastic developer  that is committed to acquiring new knowledge every day.";
@@ -43,10 +81,12 @@ export default class WriteCmd {
             `  
           break;
           case "projects":
-            response = `
-            <strong>Gradient Color Tool: </strong> <a target="_blank" href="https://github.com/RamiJS/gradientColor_creating_tool">Visit</a> <br>
-            <strong>Trafalgar Landing Page: </strong> <a target="_blank" href="https://github.com/RamiJS/trafalgar-landing-page">Visit</a> <br>
-            `
+            // loop through the projects array and create a response string
+            projects.forEach((project, index) => {
+              response += `
+              <strong>${project.name}: </strong> <a target="_blank" href="${project.link}">Visit</a> <br>
+              `
+            }) 
           break;
           case "contact":
             response = `
@@ -104,7 +144,7 @@ export default class WriteCmd {
       // loop through the commands array and add each command to the html string
       for (let i = 0; i < this.commands.length; i++) {
         html += `<p class="flex flex-row gap-3">
-          <span>C:\\Users\\username></span>
+          <span>C:\\Users\\Rami></span>
           <span class="mytext">${this.commands[i]}</span>
         </p>`;
         
@@ -118,7 +158,7 @@ export default class WriteCmd {
       
       // add a new input element to the html string
       html += `<p class="flex flex-row gap-3">
-        <span>C:\\Users\\username></span>
+        <span>C:\\Users\\Rami></span>
         <input id="input" class="bg-transparent outline-none w-full" type="text">
       </p>`;
       
