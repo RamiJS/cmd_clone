@@ -22,25 +22,26 @@ export default class Drag {
     }
   
     handleMouseDown(event) {
-        // Check if the target of the event is an input element
-        if (event.target.nodeName === "INPUT") {
-          // If it is, do nothing and return early
-          return;
-        }
-        // Otherwise, prevent the default behavior of the event (i.e. text selection or other mouse behavior)
-        event.preventDefault();
-        // Set the dragging flag to true
-        this.dragging = true;
-        // Calculate the starting X and Y coordinates for the drag by subtracting the element's offset from the mouse position
-        this.startX = event.clientX - this.element.offsetLeft;
-        this.startY = event.clientY - this.element.offsetTop;
-      
-        // Add event listeners for mousemove and mouseup events on the document object
-        document.addEventListener("mousemove", this.mouseMoveHandler);
-        document.addEventListener("mouseup", this.mouseUpHandler);
+      // Check if the target of the event is within the draggable header element
+      const header = this.element.querySelector('.border-b');
+      if (!header.contains(event.target)) {
+        return;
       }
       
+      // Otherwise, prevent the default behavior of the event (i.e. text selection or other mouse behavior)
+      event.preventDefault();
+      
+      // Set the dragging flag to true
+      this.dragging = true;
+      
+      // Calculate the starting X and Y coordinates for the drag by subtracting the element's offset from the mouse position
+      this.startX = event.clientX - this.element.offsetLeft;
+      this.startY = event.clientY - this.element.offsetTop;
     
+      // Add event listeners for mousemove and mouseup events on the document object
+      document.addEventListener("mousemove", this.mouseMoveHandler);
+      document.addEventListener("mouseup", this.mouseUpHandler);
+  }
   
     handleMouseMove(event) {
       // If the dragging flag is true, update the draggable element's position based on the current mouse position relative to the initial mouse position

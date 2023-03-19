@@ -4,14 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/icons/cmd-icon.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cmd clone</title>
+    <title>Rami' Portfolio</title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
     <!-- i am using tailwind to i will use their classes -->
-    <div id="app" class="h-screen grid place-content-center bg-blue-300">
-      <div id="window" draggable="true" class="relative bg-gray-900 text-white font-mono xl:w-[1320px] xl:h-[720px] sm:w-screen sm:h-screen">
-        <div class="flex justify-between items-center p-4 border-b border-gray-800">
+    <div id="app" class="h-screen grid place-content-center">
+      <div id="window" draggable="true" class="bg-gray-900 
+      text-white font-mono 
+      w-full 
+      h-full
+      md:w-[780px] 
+      md:h-[580px] 
+      xl:w-[1274px]
+      xl:h-[700px]
+      overflow-auto">
+        <div class="sticky top-0 left-0 bg-gray-900 p-4 border-b border-gray-800">
           <div>
             <span class="bg-red-500 w-3 h-3 inline-block rounded-full mr-2"></span>
             <span class="bg-yellow-500 w-3 h-3 inline-block rounded-full mr-2"></span>
@@ -23,27 +31,22 @@
           <p>
             Volume in drive C is OS<br>
             Volume Serial Number is 1234-5678<br><br>
-            Directory of C:\ <br><br>
-            01/01/2023   12:00 AM    &lt;DIR&gt;          Program Files<br>
+          
+            <span id="date"></span>    &lt;DIR&gt;          Program Files<br>
             <span class="text-white font-bold">
               <span id="typewriter"></span>
-              <span class="text-green-400 animate-pulse" id="cursor">|</span>
+              <span class="animate-pulse" id="cursor">|</span>
           </span>
           </p>
           
-          <div id="parent" class="">
-            <p class="flex flex-row">
+          <div id="parent">
+            <p class="flex flex-row gap-3">
               <span>
-                  C:\Users\username>
+                  C:\Users\Rami> 
               </span>
               <input id="input" class="bg-transparent outline-none w-full" type="text">
            </p>
           </div>
-        
-          <!-- <div class="text-white font-bold flex flex-row">
-            <span id="typewriter"></span>
-            <span class="text-green-400 animate-pulse" id="cursor">|</span>
-          </div> -->
         </div>
       </div>
       
