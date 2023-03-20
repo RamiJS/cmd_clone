@@ -23,20 +23,48 @@ export default class WriteCmd {
         let isDefaultResponse = false;
         let projects = [
           {
+            name: "Zoom Studio(Photography Website for a client)",
+            link: "https://zoomstu.com/",
+            icons: [
+              "/icons/vuejs.png",
+              "/icons/tailwind-css.png",
+              "/icons/sanity.jpg",
+            ]
+          },
+          {
             name: "Blogoty(Fullstack Blogging App)",
-            link: "https://github.com/RamiJS/blog-web-app"
+            link: "https://github.com/RamiJS/blog-web-app",
+            icons: [
+              "/icons/vuejs.png",
+              "/icons/tailwind-css.png",
+              "/icons/node-js.png",
+              "/icons/mongodb.png",
+            ]
           },
           {
             name: "Gradient Color Tool",
-            link: "https://github.com/RamiJS/gradientColor_creating_tool"
+            link: "https://github.com/RamiJS/gradientColor_creating_tool",
+            icons: [
+              "/icons/javascript.png",
+            ]
           },
           {
             name: "Trafalgar Landing Page",
-            link: "https://trafalgarr-landing-page.netlify.app/"
+            link: "https://trafalgarr-landing-page.netlify.app/",
+            icons: [
+              "/icons/html5.png",
+              "/icons/javascript.png",
+              "/icons/tailwind-css.png",
+            ]
           },
           {
             name: "Old Portfolio Page",
-            link: "https://github.com/RamiJS/portfolioV2"
+            link: "https://github.com/RamiJS/portfolioV2",
+            icons: [
+              "/icons/html5.png",
+              "/icons/javascript.png",
+              "/icons/bootstrap.png",
+            ]
           },
         ]
         let commands = [
@@ -82,12 +110,23 @@ export default class WriteCmd {
           break;
           case "projects":
             // loop through the projects array and create a response string
+            response = '<div style="display:flex; flex-direction:column;">';
             projects.forEach((project, index) => {
-              response += `
-              <strong>${project.name}: </strong> <a target="_blank" href="${project.link}">Visit</a> <br>
-              `
+              const iconsHtml = project.icons.map(icon => `<img src="${icon}" alt="html" width="14" height="14">`).join('');
+              const projectHtml = `
+                <div style="display:flex; align-items:center; gap: 10px;">
+                <div style="display: flex; flex-direction: row;">
+                  ${iconsHtml}
+                </div>
+                  <div style="flex-grow: 1;">
+                    <strong>${project.name}: </strong> <a target="_blank" href="${project.link}">Visit</a>
+                  </div>
+                </div>
+              `;
+              response += `<div>${projectHtml}</div>`;
             }) 
-          break;
+            response += '</div>';
+            break;
           case "contact":
             response = `
             <strong>Phone:</strong> +966 59527 2346 <br>
@@ -104,6 +143,7 @@ export default class WriteCmd {
         // create a new paragraph element for the response and append it to the parent element
         let res = document.createElement("p");
         res.innerHTML = response;
+        console.log(res)
     
         // set the color to red for the default response, otherwise white
         if (isDefaultResponse) {
@@ -126,9 +166,6 @@ export default class WriteCmd {
       }
     }
     
-    
-      
-  
     // save the command to the commands array
     saveCommand() {
       const inputField = document.getElementById("input");

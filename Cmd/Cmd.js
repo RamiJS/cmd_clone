@@ -11,6 +11,6 @@ export default class Cmd {
         this.typewriter = new TypeWriter();
         this.writecmd = new WriteCmd();
         this.drag = new Drag(this.window);
-        this.date = new TodayDate(this.getDate );
+        this.date = new TodayDate(this.getDate);
     }
 }
