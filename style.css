@@ -13,6 +13,10 @@
   margin: 0;
 }
 
+body {
+  overflow: hidden;
+}
+
 #app {
   background-image: url(/images/wallpaper.webp);
   background-repeat: no-repeat;
