@@ -59,3 +59,10 @@ export default class Drag {
     }
   }
   
+  
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
+const windowEl = document.getElementById('window');
+if (isTouchDevice) {
+  windowEl.setAttribute('draggable', false);
+}
