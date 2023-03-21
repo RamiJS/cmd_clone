@@ -75,3 +75,13 @@ a {
 .red-text{
   color: red;
 }
+
+.project_icons{
+  display: flex;
+}
+
+@media screen and (max-width: 500px) {
+  .project_icons{
+    display: none;
+  }
+}

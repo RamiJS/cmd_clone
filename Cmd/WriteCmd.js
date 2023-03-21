@@ -115,15 +115,15 @@ export default class WriteCmd {
               return `<img style="margin: 1px;" src="${icon}" alt="html" width="14" height="14">`;
             }).join('');
             const projectHtml = `
-              <div style="display:flex; align-items:center; gap: 10px;">
-              <div style="display: flex; flex-direction: row;">
+            <div style="display:flex; flex-direction: row; align-items: center; gap: 10px;">
+              <div style="gap: 5px;" class="project_icons">
                 ${iconsHtml}
               </div>
-                <div style="flex-grow: 1;">
-                  <strong>${project.name}: </strong> <a target="_blank" href="${project.link}">Visit</a>
-                </div>
+              <div style="flex-grow: 1;">
+                <strong>${project.name}: </strong> <a target="_blank" href="${project.link}">Visit</a>
               </div>
-            `;
+            </div>
+          `;
             response += `<div>${projectHtml}</div>`;
           }) 
           response += '</div>';
