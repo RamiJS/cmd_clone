@@ -11,19 +11,18 @@
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
   </head>
   <body>
-    <!-- i am using tailwind to i will use their classes -->
-    <div id="app" class="h-screen grid place-content-center">
+    <section id="app" class="h-screen">
       <div id="window" draggable="true" class="bg-[#0c0c0c] 
       text-white font-mono 
-      w-full 
-      h-full
+      w-screen 
+      h-screen
       md:w-[780px] 
       md:h-[580px] 
       xl:w-[1274px]
       xl:h-[700px]
       overflow-hidden
       ">
-      <div class="sticky position-sticky-polyfill flex flex-row justify-between top-0 left-0 z-10 bg-[#2b2b2b] border-b border-gray-800">
+       <div class="sticky position-sticky-polyfill flex flex-row justify-between top-0 left-0 z-10 bg-[#2b2b2b] border-b border-gray-800">
           <div class="flex flex-row items-center px-4 gap-1">
             <img class="w-6 h-6" src="/icons/cmd-icon.jpg" alt="cmd icon">
             <p class="text-gray-400">Command Prompt</p>
@@ -64,8 +63,7 @@
           </div>
         </div>
       </div>
-      
-    </div>
+    </section>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
