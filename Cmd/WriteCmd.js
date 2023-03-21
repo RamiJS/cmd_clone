@@ -7,14 +7,21 @@ export default class WriteCmd {
       // get the parent element
       this.parentElement = document.getElementById("parent");
       
-      window.addEventListener("click", () => {
+      // check if user is on touch device
+      this.isTouchDevice = 'ontouchstart' in document.documentElement;
+
+      // add event listener to input element if on touch device
+      if (this.isTouchDevice) {
         const input = document.getElementById("input");
-        if (!input.matches(":focus")) {
+        input.addEventListener("touchstart", () => {
           input.focus();
-        }
-      });
-      
-      
+        });
+      } else {
+        // add event listener to window element if on big screen
+        window.addEventListener("click", () => {
+          document.getElementById("input").focus();
+        });
+      }
       // listen to enter key events and run the handleEnterKey function
       document.addEventListener("keydown", this.handleEnterKey.bind(this));
     }
