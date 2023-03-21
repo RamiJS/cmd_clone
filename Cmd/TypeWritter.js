@@ -22,7 +22,7 @@ export default class TypeWriter {
         this.txt = fullTxt.substring(0, this.txt.length + 1);
       }
   
-      this.txtElement.innerHTML = `<span>${this.txt}</span>`;
+      this.txtElement.innerHTML = `${this.txt}`;
   
       let typeSpeed = 50;
   
