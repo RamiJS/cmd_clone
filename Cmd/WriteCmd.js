@@ -109,60 +109,24 @@ export default class WriteCmd {
           break;
           case "projects":
             // loop through the projects array and create a response string
-            // loop through the projects array and create a response string
-response = '<div style="display:flex; flex-direction:column;">';
-projects.forEach((project, index) => {
-  const iconsHtml = project.icons.map(icon => {
-    // create a new Image object
-    const img = new Image();
-    // set the source of the image to the icon URL
-    img.src = icon;
-    const loaded = () => {
-      const imgElem = document.createElement('img');
-      imgElem.style.margin = '1px';
-      imgElem.style.width = '14px';
-      imgElem.style.height = '14px';
-      imgElem.alt = 'html';
-      imgElem.src = icon;
-      const placeholderElem = document.getElementById(`placeholder-${index}`);
-      placeholderElem.parentNode.replaceChild(imgElem, placeholderElem);
-    };
-    
-    // check if the image is loaded before displaying it
-    if (img.complete) {
-      return `<img style="margin: 1px;" src="${icon}" alt="html" width="14" height="14">`;
-    } else {
-      // if the image is not loaded, display a placeholder
-      const placeholder = `<span style="margin: 1px; background-color: #eee; display: inline-block; width: 14px; height: 14px;" id="placeholder-${index}"></span>`;
-
-      let imgElem = document.createElement('img');
-      imgElem.src = icon;
-      imgElem.addEventListener('load', () => {
-        // replace the placeholder with the loaded image
-        loaded('Image loaded');
-      });
-      imgElem.addEventListener('error', () => {
-        // replace the placeholder with an error message
-        loaded('Error loading image');
-      });
-      return placeholder;
-    }
-    
-  }).join('');
-  const projectHtml = `
-    <div style="display:flex; align-items:center; gap: 10px;">
-    <div style="display: flex; flex-direction: row;">
-      ${iconsHtml}
-    </div>
-      <div style="flex-grow: 1;">
-        <strong>${project.name}: </strong> <a target="_blank" href="${project.link}">Visit</a>
-      </div>
-    </div>
-  `;
-  response += `<div>${projectHtml}</div>`;
-}) 
-response += '</div>';
-
+          response = '<div style="display:flex; flex-direction:column;">';
+          projects.forEach((project, index) => {
+            const iconsHtml = project.icons.map(icon => {
+              return `<img style="margin: 1px;" src="${icon}" alt="html" width="14" height="14">`;
+            }).join('');
+            const projectHtml = `
+              <div style="display:flex; align-items:center; gap: 10px;">
+              <div style="display: flex; flex-direction: row;">
+                ${iconsHtml}
+              </div>
+                <div style="flex-grow: 1;">
+                  <strong>${project.name}: </strong> <a target="_blank" href="${project.link}">Visit</a>
+                </div>
+              </div>
+            `;
+            response += `<div>${projectHtml}</div>`;
+          }) 
+          response += '</div>';
             break;
           case "contact":
             response = `
