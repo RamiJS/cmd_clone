@@ -7,9 +7,9 @@ export default class WriteCmd {
       // get the parent element
       this.parentElement = document.getElementById("parent");
       
-      // window.addEventListener("click", () => {
-      //   document.getElementById("input").focus()
-      // })
+      window.addEventListener("click", () => {
+        document.getElementById("input").focus()
+      })
       
       // listen to enter key events and run the handleEnterKey function
       document.addEventListener("keydown", this.handleEnterKey.bind(this));
