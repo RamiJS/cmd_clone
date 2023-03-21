@@ -14,3 +14,11 @@ export default class Cmd {
         this.date = new TodayDate(this.getDate);
     }
 }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     const txtElement = document.getElementById("typewriter");
+//     const words = ['Use the following commands to output info: "help", "about", "skills", "projects", "contact"'];
+//     const wait = 3000;
+  
+//     new TypeWriter(txtElement, words, wait);
+//   });
