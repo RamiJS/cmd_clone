@@ -13,14 +13,20 @@
   margin: 0;
 }
 
-html, body {
+/* html, body {
   height: 100%;
-}
+} */
 
 #app {
-  background-image: url(/images/wallpaper.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #0c0c0c;
+}
+
+@media screen and (min-width: 780px) {
+  #app {
+    background-image: url(/images/wallpaper.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 #content {
