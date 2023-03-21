@@ -13,9 +13,9 @@
   margin: 0;
 }
 
-body {
+/* body {
   overflow: hidden;
-}
+} */
 
 #app {
   background-image: url(/images/wallpaper.webp);
