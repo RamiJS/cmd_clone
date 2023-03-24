@@ -16,28 +16,13 @@ export default class TypeWriter {
       const current = this.wordIndex % this.words.length;
       const fullTxt = this.words[current];
   
-      if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-      } else {
+     if(!this.isDeleting) {
         this.txt = fullTxt.substring(0, this.txt.length + 1);
       }
   
       this.txtElement.innerHTML = `${this.txt}`;
   
       let typeSpeed = 50;
-  
-      if (this.isDeleting) {
-        typeSpeed /= 2;
-      }
-  
-      if (!this.isDeleting && this.txt === fullTxt) {
-        typeSpeed = this.wait;
-        this.isDeleting = true;
-      } else if (this.isDeleting && this.txt === "") {
-        this.isDeleting = false;
-        this.wordIndex++;
-        typeSpeed = 500;
-      }
   
       setTimeout(() => this.type(), typeSpeed);
     }
